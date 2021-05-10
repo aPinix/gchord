@@ -1,0 +1,15 @@
+<div class="w-full h-full flex flex-col bg-gray-50">
+  <!-- guitar frets -->
+  <div class="w-full flex flex-none justify-content-start overflow-auto">
+    <div class="m-auto">
+      <app-fretboard class="m-6" (hasNotes)="onHasNotes($event)"></app-fretboard>
+    </div>
+  </div>
+
+  <!-- chord image -->
+  <div class="gen-image w-full flex flex-1 justify-center">
+    <div id="chord" class="chord" class="absolute invisible"></div>
+    <canvas id="canvas" class="canvas" class="absolute invisible"></canvas>
+    <div id="chord-img" [hidden]="!nasNotes"></div>
+  </div>
+</div>

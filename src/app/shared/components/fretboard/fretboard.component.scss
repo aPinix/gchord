@@ -1,0 +1,316 @@
+// --------------------------------------------------
+// #VARS
+// --------------------------------------------------
+
+// neck
+$neck-color: #755628;
+$neck-string-outer-spacing: 10px;
+
+// fret
+$fret-width: 4px;
+$fret-spacing: 75px;
+$fret-first-width: 50px;
+$fret-first-offset: $fret-spacing / 2;
+
+// string
+$string-spacing: 38px;
+$string-height: 6px;
+
+// nut
+$nut-width: 20px;
+
+// dot
+$dot-size: 24px;
+
+// note
+$note-size: 30px;
+
+// notes-muted-open
+$notes-muted-open-width: 30px;
+
+
+
+
+
+// --------------------------------------------------
+// #STYLES
+// --------------------------------------------------
+
+// host --------------------
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+// component --------------------
+
+.guitar-neck {
+  height: calc(calc(var(--string-number) - 1) * #{$string-spacing} + var(--string-number) * #{$string-height} + #{$neck-string-outer-spacing * 2});
+  position: relative;
+  margin-left: $fret-first-width + $fret-first-offset + $notes-muted-open-width;
+  background: $neck-color;
+  box-shadow: inset -1px 0px 11px 0px rgba(black, .75);
+
+  * {
+    user-select: none;
+  }
+
+  .frets {
+    height: 100%;
+    display: flex;
+
+    .fret {
+      width: $fret-width;
+      height: 100%;
+      display: inline-flex;
+      background: #D7D6D6;
+      border-right: ($fret-width / 2) solid #686868;
+
+      &:not(.fret--first) {
+        margin-left: $fret-spacing;
+      }
+
+      &.fret--first {
+        width: $fret-first-width + $fret-first-offset;
+        position: absolute;
+        left: -($fret-first-width + $fret-first-offset);
+        top: 0;
+        background-color: #211F1D;
+
+        &:after {
+          content: '';
+          width: $nut-width;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          right: 0;
+          background-color: #FCECE0;
+          border-right: 3px solid rgba(black, .1);
+          border-left: 3px solid rgba(black, .1);
+        }
+      }
+
+      &.fret--last {
+        margin-right: $fret-spacing / 2;
+      }
+    }
+  }
+
+  .strings {
+    width: calc(100% + #{$fret-first-width + $fret-first-offset});
+    display: flex;
+    margin-left: -($fret-first-width + $fret-first-offset);
+    flex-direction: column;
+    position: absolute;
+    top: $neck-string-outer-spacing;
+    left: 0;
+    z-index: 1;
+    mask-image: linear-gradient(to right, rgba(black, 0) 0%, rgba(black, 1) #{$fret-first-width + $fret-first-offset}, rgba(black, 1) 100%);
+    pointer-events: none;
+
+    .string {
+      width: 100%;
+      height: $string-height;
+      display: inline-flex;
+      display: inline-block;
+      position: relative;
+
+      + .string {
+        margin-top: $string-spacing;
+      }
+
+      &:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #C8BB93;
+        border-bottom: 2px solid #958963;
+      }
+
+      &:nth-child(1) { &:after { height: 1px; } }
+      &:nth-child(2) { &:after { height: 2px; } }
+      &:nth-child(3) { &:after { height: 3px; } }
+      &:nth-child(4) { &:after { height: 4px; } }
+      &:nth-child(5) { &:after { height: 5px; } }
+    }
+  }
+
+  .dots {
+    width: 100%;
+    height: $dot-size * 3.5;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 0;
+
+    .dot-holder {
+      width: $fret-spacing;
+      min-width: $fret-spacing;
+      height: 100%;
+      margin-right: $fret-width;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      .dot {
+        width: $dot-size;
+        height: $dot-size;
+        border-radius: 50%;
+        background: #383530;
+        opacity: 0.9;
+
+        + .dot {
+          margin-top: $dot-size * 1.5;
+        }
+      }
+    }
+  }
+
+  .notes-muted-open {
+    width: $notes-muted-open-width;
+    height: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: -($fret-first-width + $fret-first-offset + $notes-muted-open-width);
+
+    .note {
+      width: $notes-muted-open-width;
+      height: $string-spacing / 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:after {
+        content: '-';
+        width: $notes-muted-open-width / 2;
+        height: $notes-muted-open-width / 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 14px;
+        color: #211F1D;
+      }
+
+      &.note--open {
+        &:after {
+          border: 1px solid rgba(black, .2);
+          content: '';
+        }
+      }
+
+      &.note--muted {
+        &:after {
+          content: 'X';
+        }
+      }
+    }
+  }
+
+  .notes {
+    width: 100%;
+    height: calc(100% + #{$neck-string-outer-spacing * 2});
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: -($nut-width + $fret-width / 2);
+    margin-top: -($neck-string-outer-spacing);
+
+    .note {
+      width: $fret-spacing + $fret-width;
+      min-width: $fret-spacing + $fret-width;
+      height: $string-spacing + $string-height;
+      position: relative;
+      text-align: center;
+      z-index: 10;
+
+      &.note--first {
+        width: $nut-width;
+        min-width: $nut-width;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .note-circle {
+        width: $note-size;
+        height: $note-size;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 1px solid rgba(black, .1);
+      }
+
+      &.note--active {
+        .note-circle {
+          background-color: orange;
+        }
+      }
+    }
+  }
+
+  .tuning {
+    width: $fret-first-width + $fret-first-offset - $nut-width;
+    height: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // padding: $neck-string-outer-spacing 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: -($fret-first-width + $fret-first-offset);
+
+    .tuning-select-holder {
+      position: relative;
+      color: white;
+      padding: 0 10px;
+
+      .tuning-select {
+        width: 100%;
+        height: $string-spacing / 2;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        font-weight: bold;
+        appearance: none;
+        outline: none;
+        user-select: auto;
+      }
+
+      &:after {
+        content: '⌃';
+        width: 14px;
+        height: 100%;
+        padding-top: 7px;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: $fret-first-width - $nut-width - 7px;
+        font-size: 14px;
+        color: inherit;
+        transform: rotate(180deg);
+        z-index: 0;
+        pointer-events: none;
+      }
+    }
+  }
+}

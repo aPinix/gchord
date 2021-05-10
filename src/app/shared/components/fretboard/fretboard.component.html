@@ -1,0 +1,62 @@
+<div class="guitar-neck" [style.--string-number]="numStrings">
+  <!-- frets -->
+  <div class="frets">
+    <div *ngFor="let fret of frets; let first=first; let last=last" class="fret" [ngClass]="{
+      'fret--first': first,
+      'fret--last': last
+    }"></div>
+  </div>
+
+  <!-- strings -->
+  <div class="strings">
+    <div *ngFor="let string of strings" class="string"></div>
+	</div>
+
+  <!-- tuning -->
+  <div class="tuning">
+    <div *ngFor="let note of tuning; let index=index" class="tuning-select-holder">
+      <select class="tuning-select" [name]="'tuning' + note.toLowerCase()" [id]="'tuning' + note.toLowerCase()" (change)="onTuningChange($event, index)">
+        <option [value]="n.toLowerCase()" *ngFor="let n of notes" [selected]="n === note ? true : false">{{ n }}</option>
+      </select>
+    </div>
+	</div>
+
+  <!-- notes muted-open -->
+  <div class="notes-muted-open">
+    <div
+      *ngFor="let note of tuning; let index=index"
+      class="note"
+      [ngClass]="{
+        'note--open': getMutedOpenNote(index) === 'open',
+        'note--muted': getMutedOpenNote(index) === 'muted'
+      }"
+      (click)="cycleMutedOpenNote(index)"
+    ></div>
+	</div>
+
+	<!-- dots -->
+  <div class="dots">
+    <div *ngFor="let dot of frets; let index=index; let last=last" class="dot-holder" [ngClass]="{'invisible': dotHidden(index + 1)}">
+      <div *ngFor="let d of dotCount(index + 1)" class="dot" [ngClass]="{'invisible': last}"></div>
+    </div>
+  </div>
+
+  <!-- notes -->
+  <div class="notes">
+    <table>
+      <tr *ngFor="let string of strings; let stringIndex=index">
+        <td
+          *ngFor="let note of frets; let fretIndex=index; let first=first"
+          class="note"
+          [ngClass]="{
+            'note--first': first,
+            'note--active': checkActiveNote(stringIndex + 1, fretIndex)
+          }"
+          (click)="clickNote(stringIndex + 1, fretIndex)"
+        >
+          <div class="note-circle"></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

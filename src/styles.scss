@@ -1,0 +1,36 @@
+// tailwindcss --------------------
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+
+// base --------------------
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.4;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gen-image {
+  .chord { background-color: #CDCDCD; }
+  .canvas { background-color: #CDCDCD; }
+  .chord-img { background-color: #CDCDCD; }
+}
