@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 // models
-import { Dot, Note } from '../models/typings';
+import { Dot, Note } from '../models/models';
 
 @Injectable({
   providedIn: 'root',
@@ -61,8 +61,6 @@ export class MainService {
   ];
 
   private tuningObs$: BehaviorSubject<Note[]> = new BehaviorSubject<Note[]>(this.tuningDefault);
-
-  constructor() {}
 
   get tuningObs(): Observable<Note[]> {
     return this.tuningObs$.asObservable();

@@ -4,3 +4,18 @@
   display: flex;
   flex-direction: column;
 }
+
+:host::ng-deep {
+  .btn-download {
+    height: 30px;
+    padding: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #09F;
+    color: white;
+    border-radius: 6px;
+    appearance: none;
+    cursor: pointer;
+  }
+}

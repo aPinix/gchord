@@ -16,7 +16,9 @@ export class AppComponent {
   chordImgWidth: number;
   chordImgHeight: number;
 
-  constructor(private mainService: MainService) {
+  constructor(
+    private mainService: MainService
+  ) {
     this.notes = this.mainService.notes;
     this.chordImgWidth = this.mainService.chordImgWidth;
     this.chordImgHeight = this.mainService.chordImgHeight;

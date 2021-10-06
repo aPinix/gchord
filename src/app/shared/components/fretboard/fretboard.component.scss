@@ -269,7 +269,7 @@ $notes-muted-open-width: 30px;
     width: $fret-first-width + $fret-first-offset - $nut-width;
     height: 100%;
     display: inline-flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: space-between;
     // padding: $neck-string-outer-spacing 0;
     position: absolute;

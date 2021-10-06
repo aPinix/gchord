@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 import { MainService } from '../../services/notes.service';
 
 // models
-import { Dot, MutedOpenNote, MutedOpenNoteNotation, Note, NoteActive, NotesChord } from '../../models/typings';
+import { Dot, MutedOpenNote, MutedOpenNoteNotation, Note, NoteActive, NotesChord } from '../../models/models';
 
 // third party
 // @ts-ignore
@@ -266,8 +266,10 @@ export class FretboardComponent implements OnInit, OnDestroy {
         console.log('img:', img);
         context?.drawImage(img, 0, 0);
         const png = canvas.toDataURL('image/png');
-        chordImg.innerHTML =
-          '<img src="' + png + '"/>';
+        chordImg.innerHTML = `
+          <img src="${png}"/>
+          <a href="${png}" class="btn-download" download="gchord">Download</a>
+        `;
         DOMURL.revokeObjectURL(png);
         // canvas.remove();
       };
