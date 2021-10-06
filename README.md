@@ -12,6 +12,10 @@ This is a small project that was made because I, as a guitarrist, wanted a pract
 
 <br>
 
+<img src="src/assets/images/lyrics-example.png" alt="GChord" style="width: 100%; height: auto;">
+
+<br>
+
 **FEATURES:**
 
 - Can produce tablature
