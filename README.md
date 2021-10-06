@@ -1,27 +1,30 @@
-# Gchord
+# GChord (Generate Chord)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.
+Welcome 👋
 
-## Development server
+Made with ❤️&nbsp;&nbsp;by **André Pinto** ([@aPinix](https://twitter.com/aPinix)) from Portugal.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This is a small project that was made because I, as a guitarrist, wanted a practical way to produce those cool little tablature images so I coul put them into a LYRICS document as a **cheat sheet**.
 
-## Code scaffolding
+<br>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<img src="src/gif/gchorg.gif" alt="GChord" style="width: 100%; height: auto;">
 
-## Build
+<br>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+**FEATURES:**
 
-## Running unit tests
+- Can produce tablature
+- Can change tuning
+- Can do open and closed notes
+- Can save as image to your device
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<br>
 
-## Running end-to-end tests
+**TODO:**
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- Bass support (and maybe other string intruments as well)
 
-## Further help
+<br>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+It can help you too! Knock yourself out 😀
