@@ -8,7 +8,7 @@ This is a small project that was made because I, as a guitarrist, wanted a pract
 
 <br>
 
-<img src="src/assets/gif/gchorg.gif" alt="GChord" style="width: 100%; height: auto;">
+<img src="src/assets/gif/gchord.gif" alt="GChord" style="width: 100%; height: auto;">
 
 <br>
 
