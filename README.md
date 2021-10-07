@@ -4,7 +4,7 @@ Welcome 👋
 
 Made with ❤️&nbsp;&nbsp;by **André Pinto** ([@aPinix](https://twitter.com/aPinix)) from Portugal.
 
-This is a small project that was made because I, as a guitarrist, wanted a practical way to produce those cool little tablature images so I coul put them into a LYRICS document as a **cheat sheet**.
+This is a small project that was made because I, as a guitarist, wanted a practical way to produce those cool little tablature images so I could put them into a LYRICS document as a **cheat sheet**.
 
 <br>
 
